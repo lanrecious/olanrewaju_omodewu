@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lanre Omodewu | Portfolio</title>
+
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root {
+  --primary:#38bdf8;
+  --accent:#22c55e;
+  --dark:#020617;
+  --card:#0f172a;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+body{background:var(--dark);color:#fff;}
+
+/* HEADER */
+header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:15px 25px;background:var(--dark);position:sticky;top:0;z-index:1000;
+}
+.profile{display:flex;align-items:center;gap:10px;cursor:pointer;}
+.profile img{width:55px;height:55px;border-radius:50%;border:2px solid var(--primary);}
+.name{font-weight:800;}
+.role{font-size:12px;color:var(--primary);}
+
+/* HERO */
+.hero{text-align:center;padding:70px 20px;}
+.hero h1{font-size:36px;font-weight:800;}
+.hero p{color:#94a3b8;margin-top:10px;}
+
+/* SECTION */
+section{padding:50px 20px;}
+h2{color:var(--primary);margin-bottom:20px;text-align:center;}
+
+/* SLIDER */
+.slider-container{
+  position:relative;
+  overflow:hidden;
+  max-width:900px;
+  margin:auto;
+}
+.slides-wrapper{
+  display:flex;
+  transition:transform 0.5s ease-in-out;
+}
+.slide{
+  min-width:100%;
+  position:relative;
+  border-radius:15px;
+  overflow:hidden;
+}
+.slide img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  transition:0.5s;
+}
+.slide:hover img{transform:scale(1.1);}
+.slide .caption{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,0.6);color:#fff;font-size:18px;font-weight:600;
+  opacity:0;transition:0.5s;text-align:center;padding:10px;
+}
+.slide:hover .caption{opacity:1;}
+.prev,.next{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(0,0,0,0.5);border:none;color:#fff;font-size:22px;
+  padding:10px;cursor:pointer;border-radius:50%;
+  z-index:10;
+}
+.prev{left:10px;}
+.next{right:10px;}
+
+/* CONTACT */
+.contact{max-width:500px;margin:auto;background:var(--card);padding:25px;border-radius:15px;}
+.contact input,.contact textarea{
+  width:100%;padding:12px;margin-top:10px;border:none;border-radius:8px;background:#020617;color:#fff;
+}
+.contact button{
+  margin-top:15px;width:100%;padding:12px;border:none;border-radius:10px;background:linear-gradient(to right,var(--primary),var(--accent));color:#fff;cursor:pointer;
+}
+.socials{display:flex;justify-content:center;gap:10px;margin-top:15px;}
+.socials a{background:#020617;padding:10px;border-radius:50%;color:#fff;}
+
+/* FOOTER */
+footer{text-align:center;padding:20px;color:#64748b;}
+
+/* BIO MODAL */
+.modal{
+  display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.85);z-index:2000;overflow:auto;
+}
+.modal-content{
+  background:var(--card);margin:50px auto;padding:25px;border-radius:15px;
+  max-width:700px;text-align:center;position:relative;
+}
+.close{position:absolute;top:10px;right:15px;font-size:22px;cursor:pointer;}
+.modal-content img{width:150px;height:150px;border-radius:50%;border:3px solid var(--primary);margin-bottom:15px;}
+.modal-content p{margin-top:10px;color:#ccc;}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+<div class="profile" id="profileClick">
+<img src="profile.jpg">
+<div>
+<div class="name">Omodewu Olanrewaju Eyitayo</div>
+<div class="role" id="role"></div>
+</div>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<h1>I Build Brands & Data Systems</h1>
+<p>Strategy • Creativity • Analytics</p>
+</section>
+
+<!-- WORK -->
+<section>
+<h2>My Work</h2>
+<div class="slider-container" id="workSlider">
+  <div class="slides-wrapper">
+    <div class="slide"><img src="design1.jpg"><div class="caption">Design</div></div>
+    <div class="slide"><img src="design2.jpg"><div class="caption">Branding</div></div>
+    <div class="slide"><img src="design3.jpg"><div class="caption">Data Analysis</div></div>
+    <div class="slide"><img src="design4.jpg"><div class="caption">Creative</div></div>
+  </div>
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+</div>
+</section>
+
+<!-- CERTIFICATES -->
+<section>
+<h2>Certificates</h2>
+<div class="slider-container" id="certSlider">
+  <div class="slides-wrapper">
+    <div class="slide"><img src="cert1.jpg"><div class="caption">Canva Certified</div></div>
+    <div class="slide"><img src="cert2.jpg"><div class="caption">HubSpot Content</div></div>
+    <div class="slide"><img src="cert3.jpg"><div class="caption">Digital Marketing</div></div>
+  </div>
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact Me</h2>
+<div class="contact">
+<form action="https://formsubmit.co/omodewue@gmail.com" method="POST">
+<input type="text" name="name" placeholder="Name" required>
+<input type="email" name="email" placeholder="Email" required>
+<textarea name="message" placeholder="Message" required></textarea>
+<input type="hidden" name="_captcha" value="false">
+<button type="submit">Send Message</button>
+</form>
+<div class="socials">
+<a href="https://wa.me/2347047688941"><i class="fab fa-whatsapp"></i></a>
+<a href="https://instagram.com/lanre_omodewu"><i class="fab fa-instagram"></i></a>
+<a href="https://x.com/lanrecioustayo"><i class="fab fa-x-twitter"></i></a>
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 Omodewu Olanrewaju Eyitayo || All reserved rights
+</footer>
+
+<!-- BIO MODAL -->
+<div id="bioModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img src="profile.jpg" alt="lanre_omodewu">
+    <h2>Omodewu Olanrewaju Eyitayo</h2>
+    <p>Omodewu Olanrewaju Eyitayo (Lanre Omodewu) is a multi-disciplinary professional specializing in Data & Business Analysis, Brand Strategy, Creative Design, and Fashion Consulting. He combines analytical thinking with creative excellence to build brands, systems, and experiences that are both visually compelling and strategically sound.<br><br>
+With a strong foundation in data analysis, Lanre leverages insights to drive decision-making, optimize performance, and uncover opportunities for growth. As a brand strategist, he develops clear positioning, identity systems, and marketing approaches that help businesses stand out in competitive markets.<br><br>
+Beyond strategy, Lanre is a skilled creative designer known for crafting impactful visuals, brand identities, and digital experiences. His expertise also extends into the fashion industry, where he works as a fashion consultant and clothing brand designer helping individuals and businesses translate ideas into market-ready fashion concepts.<br><br>
+His work sits at the intersection of creativity, strategy, and data, allowing him to deliver solutions that are not only aesthetically strong but also results-driven.<br><br>
+Lanre is passionate about building innovative brands, empowering businesses, and creating meaningful value through design, analytics, and strategic thinking.</p>
+  </div>
+</div>
+
+<script>
+// ROLE ANIMATION
+const roles=["Data Analyst","Brand Strategist","Creative Designer","Fashion Consultant"];
+let i=0;
+const roleEl=document.getElementById("role");
+setInterval(()=>{
+  roleEl.textContent=roles[i];
+  i=(i+1)%roles.length;
+},2000);
+
+// MODAL
+const modal=document.getElementById("bioModal");
+document.getElementById("profileClick").onclick=()=>modal.style.display="block";
+document.querySelector(".close").onclick=()=>modal.style.display="none";
+window.onclick=(e)=>{if(e.target==modal) modal.style.display="none";};
+
+// SLIDER FUNCTION WITH AUTOPLAY
+function initSlider(containerId, interval=3000){
+  const container=document.getElementById(containerId);
+  const wrapper=container.querySelector(".slides-wrapper");
+  const slides=wrapper.children;
+  let index=0;
+
+  function showSlide(i){wrapper.style.transform=`translateX(-${i*100}%)`;}
+
+  container.querySelector(".next").onclick=()=>{index=(index+1)%slides.length;showSlide(index);};
+  container.querySelector(".prev").onclick=()=>{index=(index-1+slides.length)%slides.length;showSlide(index);};
+
+  // Auto slide
+  setInterval(()=>{
+    index=(index+1)%slides.length;
+    showSlide(index);
+  }, interval);
+}
+
+// Initialize sliders
+initSlider("workSlider", 4000);
+initSlider("certSlider", 4000);
+</script>
+
+</body>
+</html>
